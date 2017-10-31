@@ -1,0 +1,17 @@
+.HomeFooter{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+}
+
+.HomeFooter--logo img{
+  padding: 20px;
+  display: block;
+  width: 120px;
+  height: 120px;
+}

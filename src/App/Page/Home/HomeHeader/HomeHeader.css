@@ -1,0 +1,18 @@
+.HomeHeader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 90px;
+}
+
+.HomeHeader--logo{
+  padding: 15px;
+}
+
+.HomeHeader--logo img{
+  display: block;
+  height: 60px;
+  width: auto;
+}

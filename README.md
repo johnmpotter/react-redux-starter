@@ -1,3 +1,15 @@
+# Novo
+
+File structure roughly based on [this Medium article](https://hackernoon.com/the-100-correct-way-to-structure-a-react-app-or-why-theres-no-such-thing-3ede534ef1ed)
+
+Redux setup based on [this other Medium article](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f)
+
+***
+
+## Original create-react-app readme below
+
+***
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

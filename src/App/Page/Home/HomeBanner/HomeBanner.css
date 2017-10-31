@@ -1,0 +1,28 @@
+.HomeBanner{
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.HomeBanner--title{
+  font-size: 3.8em;
+  margin-bottom: 50px;
+  color: #6ADFD4;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.HomeBanner--action-cta{
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  color: #6ADFD4;
+  font-weight: 300;
+}
