@@ -13,7 +13,6 @@ export default class HomeBanner extends Component {
           <h1 className="HomeBanner--title">Business Credibility<br/> on the Blockchain</h1>
 
           <div className="HomeBanner--action-container">
-            <p className="HomeBanner--action-cta">Be the first to receive mission updates and announcements</p>
             <EmailFormContainer/>
           </div>
         </div>

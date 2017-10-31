@@ -1,49 +1,13 @@
-.input-action{
-  display: flex;
-  background: #F7EFA4;
-  padding: 3px;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 25px;
-}
+/****** Colors ******/
+/****** Responsive ******/
+.EmailFormContainer--cta {
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  color: #56AAA5;
+  font-weight: 300; }
 
-.input-action.ui.input input,
-.input-action.ui.input input:focus {
-  border-radius: 5px;
-  background: #1D0312 !important;
-  color: #ffffff;
-  box-shadow: none;
-  border: none;
-  font-weight: 300;
-}
-
-.input-action.ui.input input:-webkit-autofill,
-.input-action.ui.input input:-webkit-autofill:hover,
-.input-action.ui.input input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 100px #1D0312 inset;
-  -webkit-text-fill-color: white !important;
-}
-
-.input-action > .ui.button {
-  background: #F7EFA4;
-  border: none;
-  box-shadow: none;
-  font-weight: 300;
-  color: rgba(29, 3, 17, .8);
-}
-
-.input-action > .ui.button:hover,
-.input-action > .ui.button:active,
-.input-action > .ui.button:focus {
-  background: #F7EFA4;
-  border: none;
-  box-shadow: none;
-  color: rgba(29, 3, 17, 1);
-}
-
-/* Error code */
-
-.email-form--response{
-  margin-top: 10px;
-}
+/******* Responsive ******/
+@media screen and (max-width: 479px) {
+  .EmailFormContainer--cta {
+    font-size: 1.2em;
+    margin-bottom: 20px; } }

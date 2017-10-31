@@ -12,10 +12,10 @@ export default class Home extends Component {
   render() {
     return (
       <div className='Home'>
+        <StarBackground />
         <HomeHeader />
         <HomeBanner />
         <HomeFooter />
-        <StarBackground />
       </div>
     );
   }

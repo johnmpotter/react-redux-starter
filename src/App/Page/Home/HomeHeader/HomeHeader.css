@@ -1,18 +1,18 @@
-.HomeHeader{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  height: 90px;
-}
+/****** Colors ******/
+/****** Responsive ******/
+.HomeHeader {
+  flex: 0 0 auto;
+  height: 100px; }
 
-.HomeHeader--logo{
-  padding: 15px;
-}
+.HomeHeader--logo {
+  padding: 15px; }
 
-.HomeHeader--logo img{
+.HomeHeader--logo img {
   display: block;
   height: 60px;
-  width: auto;
-}
+  width: auto; }
+
+/****** Responsive ******/
+@media screen and (max-width: 767px) {
+  .HomeHeader--logo img {
+    margin: 0 auto; } }

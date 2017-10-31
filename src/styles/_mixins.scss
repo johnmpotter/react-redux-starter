@@ -1,0 +1,27 @@
+/****** Colors ******/
+
+$dark: #1D0312;
+$brandPrimary: #6ADFD4;
+$brandPrimaryShade: #56AAA5;
+$brandHighlight: #F7EFA4;
+
+
+/****** Responsive ******/
+
+@mixin tablet {
+	@media screen and (max-width: 991px){
+		@content;
+	}
+}
+
+@mixin phablet {
+	@media screen and (max-width: 767px){
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media screen and (max-width: 479px){
+		@content;
+	}
+}

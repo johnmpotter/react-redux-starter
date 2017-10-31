@@ -1,5 +1,12 @@
+/****** Colors ******/
+/****** Responsive ******/
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
+  background: #1D0312; }
+
+#root {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; }

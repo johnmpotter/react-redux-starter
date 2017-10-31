@@ -1,28 +1,37 @@
-.HomeBanner{
+/****** Colors ******/
+/****** Responsive ******/
+.HomeBanner {
+  flex-grow: 1;
   color: #ffffff;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
+  padding: 0 15px; }
 
-.HomeBanner--title{
+.HomeBanner--title {
   font-size: 3.8em;
   margin-bottom: 50px;
   color: #6ADFD4;
   letter-spacing: 1px;
   line-height: 1.2;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-.HomeBanner--action-cta{
+.HomeBanner--action-cta {
   font-size: 1.4em;
   margin-bottom: 20px;
-  color: #6ADFD4;
-  font-weight: 300;
-}
+  color: #56AAA5;
+  font-weight: 300; }
+
+/******* Responsive ******/
+@media screen and (max-width: 767px) {
+  .HomeBanner--title {
+    font-size: 3em;
+    margin-bottom: 40px; } }
+
+@media screen and (max-width: 479px) {
+  .HomeBanner--title {
+    font-size: 2.4em;
+    margin-bottom: 30px; }
+  .HomeBanner--action-cta {
+    font-size: 1.2em;
+    margin-bottom: 20px; } }
