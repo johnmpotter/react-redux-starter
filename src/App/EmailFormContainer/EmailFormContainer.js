@@ -1,7 +1,7 @@
 /* @flow */
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Button } from 'semantic-ui-react'
+import { Container, Transition, Icon } from 'semantic-ui-react'
+import jsonp from 'jsonp'
 
 import SubscribeSuccess from './SubscribeSuccess/SubscribeSuccess'
 import SubscribeForm from './SubscribeForm/SubscribeForm'
@@ -9,62 +9,71 @@ import SubscribeForm from './SubscribeForm/SubscribeForm'
 import './EmailFormContainer.css'
 
 type Props = {
-  action: String,
+  action: string,
 }
 
 type State = {
-  isSubmitting: Boolean,
-  errorResponse: String,
-  successResponse: String,
-  hasSubscribed: Boolean,
-  subscribedEmail: String,
+  isSubmitting: boolean,
+  status: string,
+  message: string,
+  subscribedEmail: string,
 }
 
-export default class EmailFormContainer extends Component<State> {
+export default class EmailFormContainer extends Component<Props, State> {
 
   static defaultProps = {
-    action: 'https://novoprotocol.us17.list-manage.com/subscribe/post-json?u=d643dcd42f277b3f147e60ac6&amp&id=94e7e53569',
+    action: 'https://novoprotocol.us17.list-manage.com/subscribe/post-json?u=d643dcd42f277b3f147e60ac6&amp;id=2dc7a654de',
   }
 
   state = {
     isSubmitting: false,
-    errorResponse: null,
-    successResponse: null,
-    hasSubscribed: false,
+    status: '',
+    message: '',
     subscribedEmail: '',
   }
 
-  handleSubmit = (formData) => {
+  handleSubmit = (formData: Object) => {
 
     if (this.state.isSubmitting) return null;
 
+    if (formData.EMAIL.length < 1){
+      this.setState({
+        status: 'error',
+        message: "Slowdown space cowboy, you must include your email address"
+      })
+      return null;
+    }
+
     this.setState({isSubmitting: true});
 
-    axios.get(this.props.action, formData)
-    .then(response => {
-      if (response.result === 'error'){
+    const url = this.props.action + `&EMAIL=${encodeURIComponent(formData.EMAIL)}`
+
+    jsonp(url, {
+        param: "c"
+    }, (err, data) => {
+      if (err){
         this.setState({
-          errorResponse: response.msg,
-          successResponse: null,
+          status: 'error',
+          message: err.message,
           isSubmitting: false
+        })
+      }else if(data.result === "error"){
+        this.setState({
+          status: 'error',
+          message: data.msg,
+          isSubmitting: false,
+          subscribedEmail: ''
         })
       }else{
         this.setState({
-          successResponse: response.msg,
-          errorResponse: null,
+          status: 'success',
+          message: data.msg,
           isSubmitting: false,
-          hasSubscribed: true,
-          subscribedEmail: formData.EMAIL,
+          subscribedEmail: formData.EMAIL
         })
       }
     })
-    .catch(error => {
-      this.setState({
-        errorResponse: error,
-        successResponse: null,
-        isSubmitting: false
-      })
-    })
+
   }
 
   render() {
@@ -72,25 +81,31 @@ export default class EmailFormContainer extends Component<State> {
       <div className='EmailFormContainer'>
 
         <p className="EmailFormContainer--cta">
-          {this.state.hasSubscribed ?
-            `Success! You're all set to receive updates to ${this.state.EMAIL}.`
+          {this.state.status === 'success' ?
+            <span>
+              <Icon name="checkmark" />Success! You're all set to receive updates to {this.state.subscribedEmail}.
+            </span>
             :
             "Be the first to receive mission updates and announcements"
           }
         </p>
 
-        { this.state.hasSubscribed ?
-          <SubscribeSuccess />
-          :
+        { this.state.status !== 'success' &&
           <SubscribeForm
             action={this.props.action}
             handleSubmit={this.handleSubmit}
             isSubmitting={this.state.isSubmitting}
-            errorResponse={this.state.errorResponse}
-            successResponse={this.state.successResponse}
-            hasSubscribed={this.state.hasSubscribed}
+            status={this.state.status}
+            message={this.state.message}
           />
         }
+
+        <Transition visible={this.state.status === 'success'} animation="scale" duration={500}>
+          <Container>
+            <SubscribeSuccess />
+          </Container>
+        </Transition>
+
       </div>
     );
   }

@@ -4,14 +4,14 @@ import { Button, Icon } from 'semantic-ui-react'
 
 import './ShareButtons.css'
 
-export default class ShareButtons extends Component<Props> {
+export default class ShareButtons extends Component<{}> {
 
   url = () => {
 		return "https://www.novoprotocol.com"
 	}
 
 	content = () => {
-		return "Novo Protocol: Business identity & credibility on the blockchain"
+		return "@NovoProtocol: Business identity & credibility on the blockchain"
 	}
 
 	tweetText = () => {
@@ -22,12 +22,11 @@ export default class ShareButtons extends Component<Props> {
 	twitterUrl = () => {
 		return "https://twitter.com/intent/tweet?" +
            "text=" + encodeURIComponent(this.tweetText()) +
-           "&via=NovoProtocol" +
            "&url=" + this.url()
 	}
 
 	facebookUrl = () => {
-		return "https://www.facebook.com/sharer.php?" + "&u=" + this.url()
+		return "https://www.facebook.com/sharer.php?&u=" + this.url()
 	}
 
   linkedinUrl = () => {
@@ -40,20 +39,20 @@ export default class ShareButtons extends Component<Props> {
 		const text = "Hey, have you seen Novo Protocol? They're bringing business identity and credibility to the blockchain. %0A%0A " + this.url()
 
 		var subject = encodeURIComponent("Business credibility on the blockchain");
-		return "mailto:?" + "body=" + text + "&subject=" + subject;
+		return "mailto:?body=" + text + "&subject=" + subject;
 	}
 
   render() {
     return (
       <div className='ShareButtons'>
-        <Button as="a" href={this.twitterUrl()} target="_blank" color='twitter'>
+        <Button as="a" href={this.twitterUrl()} target="_blank" color='twitter' size="big">
           <Icon name='twitter' /> Share on Twitter
         </Button>
-        <Button as="a" href={this.linkedinUrl()} target="_blank" color='linkedin'>
+        <Button as="a" href={this.linkedinUrl()} target="_blank" color='linkedin' size="big">
           <Icon name='linkedin' /> Share on Linkedin
         </Button>
-        <Button as="a" href={this.emailUrl()} color='green'>
-          <Icon name='mail outline' /> Send via email
+        <Button as="a" href={this.emailUrl()} color='teal' size="big">
+          <Icon name='mail outline' /> Share via email
         </Button>
       </div>
     );

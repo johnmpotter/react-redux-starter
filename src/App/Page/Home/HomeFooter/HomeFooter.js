@@ -4,7 +4,7 @@ import './HomeFooter.css'
 
 import logoSquare from '../../../../images/novo_logo_square.png'
 
-export default class HomeFooter extends Component {
+export default class HomeFooter extends Component<{}> {
   render() {
     return (
       <div className='HomeFooter'>

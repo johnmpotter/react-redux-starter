@@ -8,7 +8,7 @@ import StarBackground from './StarBackground/StarBackground'
 
 import './Home.css'
 
-export default class Home extends Component {
+export default class Home extends Component<{}> {
   render() {
     return (
       <div className='Home'>

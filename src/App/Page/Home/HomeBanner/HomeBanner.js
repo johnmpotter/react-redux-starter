@@ -5,7 +5,7 @@ import EmailFormContainer from '../../../EmailFormContainer/EmailFormContainer'
 
 import './HomeBanner.css'
 
-export default class HomeBanner extends Component {
+export default class HomeBanner extends Component<{}> {
   render() {
     return (
       <div className='HomeBanner'>

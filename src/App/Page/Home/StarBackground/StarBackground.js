@@ -4,9 +4,9 @@ import Particles from 'react-particles-js';
 
 import './StarBackground.css'
 
-export default class StarBackground extends Component {
+export default class StarBackground extends Component<{}> {
 
-  particlesConfig = (particleConfigSize: String) => {
+  particlesConfig = (particleConfigSize: string) => {
 
     const particleData = {
       particleDensityValue: {

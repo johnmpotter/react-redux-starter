@@ -1,8 +1,9 @@
+/* @flow */
 import React, { Component } from 'react'
 import { Button, Form, Grid, Header, Message, Segment, Icon, Divider } from 'semantic-ui-react'
 import './Registration.css'
 
-export default class Registration extends Component {
+export default class Registration extends Component<{}> {
   render() {
     return (
       <div className='Registration'>

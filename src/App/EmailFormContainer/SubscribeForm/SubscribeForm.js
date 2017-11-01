@@ -5,37 +5,33 @@ import { Button } from 'semantic-ui-react'
 import './SubscribeForm.css'
 
 type Props = {
-  action: String,
+  action: string,
   handleSubmit: Function,
-  isSubmitting: Boolean,
-  errorResponse: String,
-  successResponse: String,
-  hasSubscribed: Boolean,
+  isSubmitting: boolean,
+  status: string,
+  message: string,
 }
 
-export default class EmailFormContainer extends Component<Props> {
+type State = {
+  EMAIL: string,
+  b_d643dcd42f277b3f147e60ac6_94e7e53569: string,
+}
+
+export default class EmailFormContainer extends Component<Props, State> {
 
   state = {
     EMAIL: '',
     b_d643dcd42f277b3f147e60ac6_94e7e53569: '',
   }
 
-  onChange = (e) => {
+  onChange = (e: SyntheticEvent<HTMLInputElement>) => {
     const state = this.state
-    state[e.target.name] = e.target.value;
+    state[e.currentTarget.name] = e.currentTarget.value;
     this.setState(state);
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    if (this.state.EMAIL.length < 1){
-      this.setState({
-        errorResponse: "Slowdown space cowboy, you must include your email address",
-        successResponse: null
-      })
-      return null;
-    }
 
     const formData = {
       EMAIL: this.state.EMAIL,
@@ -78,14 +74,9 @@ export default class EmailFormContainer extends Component<Props> {
         </div>
 
         {/* Error messages */}
-        { this.props.errorResponse &&
+        { this.props.status === 'error' &&
            <div className="email-form--response" >
-             {this.props.errorResponse.toString()}
-           </div>
-        }
-        { this.props.successResponse &&
-           <div className="email-form--response" >
-             {this.props.successResponse.toString()}
+             {this.props.message}
            </div>
         }
 
